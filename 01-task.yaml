@@ -1,0 +1,25 @@
+apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: apply-runbook
+spec:
+  workspaces:
+  - name: source
+  params:
+    - name: runbook-dir
+      description: The directory in workspace that contains the runbook manifest
+      type: string
+      default: ""
+    - name: runbook-name
+      description: The name of the runbook to deploy
+      type: string
+      default: "runbook"
+  steps:
+    - name: apply
+      image: image-registry.openshift-image-registry.svc:5000/openshift/cli:latest
+      workingDir: /workspace/$(inputs.params.runbook-dir)
+      command: ["/bin/bash", "-c"]
+      args:
+        - |-
+          echo Applying Runbook $(inputs.params.runbook_name) manifests in $(inputs.params.runbook-dir) directory
+          echo -----------------------------------
