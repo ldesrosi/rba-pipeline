@@ -37,3 +37,9 @@ spec:
             resources:
               requests:
                 storage: 500Mi
+      - name: rba-config
+        configmap:
+          name: rba-config
+      - name: rba-secret
+        secret:
+          secretName: rba-api-secret

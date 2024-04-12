@@ -5,6 +5,8 @@ metadata:
 spec:
   workspaces:
   - name: shared-workspace
+  - name: rba-config
+  - name: rba-secret
   params:
   - name: git-url
     type: string
@@ -37,12 +39,16 @@ spec:
       value: "true"
     - name: revision
       value: $(params.git-revision)
-  - name: apply-manifests
+  - name: apply-runbook
     taskRef:
-      name: apply-manifests
+      name: apply-runbook 
     workspaces:
     - name: source
       workspace: shared-workspace
+    - name: config
+      workspace: rba-config
+    - name: secret
+      workspace: rba-secret
     params:
     - name: runbook_dir
       value: $(params.runbook-dir)

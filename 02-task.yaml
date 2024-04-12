@@ -5,6 +5,8 @@ metadata:
 spec:
   workspaces:
   - name: source
+  - name: config
+  - name: secret
   params:
     - name: runbook-dir
       description: The directory in workspace that contains the runbook manifest
@@ -21,5 +23,9 @@ spec:
       command: ["/bin/bash", "-c"]
       args:
         - |-
+          source /workspace/config/rba-env.properties
+          source /workspace/secret/rba-credentials.properties
           echo Applying Runbook $(inputs.params.runbook_name) manifests in $(inputs.params.runbook-dir) directory
+          echo API Endpoint: $API_ENDPOINT
+          #echo API Key: $API_KEY
           echo -----------------------------------

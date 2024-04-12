@@ -1,0 +1,11 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: el-runbook-deployment
+spec:
+  to:
+    kind: Service
+    name: el-runbook-deployment
+  port:
+    targetPort: http-listener
+  wildcardPolicy: None

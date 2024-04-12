@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rba-config
+data:
+  # file-like keys
+  rba-env.properties: |
+    API_ENDPOINT=rba.svc.local
+          

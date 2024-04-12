@@ -6,9 +6,6 @@
 # General 
 .DS_Store
 
-# Dont persist secret
-01-secret.yaml
-
 # User-specific files
 *.rsuser
 *.suo
