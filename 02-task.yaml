@@ -27,5 +27,5 @@ spec:
           source /workspace/secret/rba-credentials.properties
           echo Applying Runbook $(inputs.params.runbook_name) manifests in $(inputs.params.runbook-dir) directory
           echo API Endpoint: $API_ENDPOINT
-          #echo API Key: $API_KEY
+          echo API Key: $API_KEY
           echo -----------------------------------
